@@ -1,9 +1,21 @@
+import { Route, Routes } from "react-router-dom"
+import CheckAuthentication from "./components/CheckAuthentication"
+import { routes } from "./routes"
+import LoginPage from "./pages/Login"
+import HomePage from "./pages/Home"
+
 function App() {
 
   return (
-    <div className="w-screen h-screen bg-slate-400">
+    <>
+      <Routes>
+        <Route path={routes.login} element={<LoginPage />} />
 
-    </div>
+        <Route path="/" element={<CheckAuthentication />}>
+          <Route path={routes.home} element={<HomePage />} />
+        </Route>
+      </Routes>
+    </>
   )
 }
 
